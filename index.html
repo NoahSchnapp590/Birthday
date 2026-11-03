@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Настройки экрана для Android: реальная ширина устройства,
+       безопасная область и корректная высота при открытой клавиатуре. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#050816">
+  <title>С днем рождения!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Фоновое видео. Файл должен лежать в images/1.mp4. -->
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <source src="./images/1.mp4" type="video/mp4">
+  </video>
+
+  <!-- Музыка. Файл нужно положить в images/песня.mp3. -->
+  <audio id="bgMusic" src="./images/песня.mp3" preload="metadata"></audio>
+
+  <div class="container">
+    <section class="gate">
+      <!-- Кнопка музыки находится перед заголовком.
+           Браузер не разрешает звук сам по себе: её нужно нажать вручную. -->
+      <div class="music-start">
+        <p class="music-note" id="musicStatus" hidden></p>
+        <button class="music-button" id="musicButton" type="button" aria-pressed="false">Сначала тык сюда</button>
+      </div>
+
+      <h1 class="header-main">Какой же пароль ?</h1>
+      <h2 class="header-second">Кис, если ты тут, то ты на правильном пути!</h2>
+
+      <!-- код задаётся в pattern ниже. Атрибут required обязателен. -->
+      <label for="код">Вводи сюда код -&gt; </label>
+      <input
+        class="code-input"
+        id="код"
+        type="text"
+        enterkeyhint="done"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Кисаааа!!!!"
+        required
+        pattern="R136a1">
+
+      <p class="status status-wrong">Попробуй еще раз, я в тебя верю, ты уже близко!</p>
+      <p class="status status-ok">Кис, молодец! Листай</p>
+      <p class="gate-note">Ну а если ты как-то оказался здесь и не знаешь, что делать, то могу дать <a href="second.html" target="_blank" rel="noopener">подсказку</a>...</p>
+    </section>
+  </div>
+
+  <!-- Скрытая часть страницы -->
+  <main class="secret">
+    <section class="section">
+      <h2>Спасибо тебе большое</h2>
+      <p>Кис, когда мы с тобой начали общаться, ты словно осветил моё существование. Вспышка, взрыв, рождение звезды — неважно, ведь мне важно то, что ты рядом со мной. Пожалуйста, продолжай оставаться таким же искренним и светлым, прямо как звезда R136a1. Как и ты, она не самая заметная, представляешь, но самая яркая во всей Вселенной. Я невероятно рада, что ты каждый день светишься для меня. Ты делаешь мою жизнь ярче.</p>
+      <p>Если я — космос, а ты — свет, то я хочу, чтобы он распространялся там с постоянной скоростью: c = 299 792 458 м/с, — ведь Вселенная действительно бесконечна.</p>
+    </section>
+
+    <section class="section">
+      <h2>А вот и она, R136a1</h2>
+
+      <!-- Все три снимка идут строго друг за другом в один столбец. -->
+      <div class="photo-column">
+        <button class="snapshot-button" type="button" aria-label="Увеличить снимок 1">
+          <img class="snapshot" src="images/снимок1.png" alt="Большое Магелланово Облако и отмеченная область со звездой R136a1" width="1197" height="905" loading="lazy" decoding="async">
+        </button>
+
+        <button class="snapshot-button" type="button" aria-label="Увеличить снимок 2">
+          <img class="snapshot" src="images/снимок2.png" alt="Туманность Тарантул и звёздное скопление крупным планом" width="1209" height="895" loading="lazy" decoding="async">
+        </button>
+
+        <button class="snapshot-button" type="button" aria-label="Увеличить снимок 3">
+          <img class="snapshot" src="images/снимок3.png" alt="Большое Магелланово Облако" width="1116" height="915" loading="lazy" decoding="async">
+        </button>
+        <p class="discrip">Это самая яркая звезда во Вселенной на данный момент. Она находится в глубоком космосе, а точнее в Большом Магеллановом облаке, Туманности Тарантул. Примерно в 160-165 тыс световых лет от нас. Я очень долго её искала на просторах темного, непроглядного, безнадежного пространства. Но счаслива, что все же нашла. И да, я про тебя.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="tickets">
+        <h2>Итак...</h2>
+        <h1>Наши билеты <a href="third.html" target="_blank" rel="noopener">тут</a></h1>
+      </div>
+    </section>
+  </main>
+    <dialog class="image-lightbox" id="imageLightbox" aria-label="Увеличенное изображение">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть увеличенное изображение">×</button>
+      <img class="lightbox-image" id="lightboxImage" alt="">
+    </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
